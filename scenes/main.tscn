@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxe6d461gugm0"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_cckv4"]
+
+[node name="Main" type="MarginContainer" groups=["main"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cckv4")
+
+[node name="Background" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Stage" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="UI" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Transition" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="Popups" type="CenterContainer" parent="."]
+layout_mode = 2
