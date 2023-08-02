@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dslvmyex6ej16"]
+
+[ext_resource type="Script" path="res://scenes/screens/main_menu.gd" id="1_dngp3"]
+[ext_resource type="Texture2D" uid="uid://c011d6gtokfes" path="res://images/background-2015-420.jpg" id="2_mtj67"]
+[ext_resource type="Theme" uid="uid://ba3kjokv2haru" path="res://themes/main_menu_theme.tres" id="3_8w0gg"]
+
+[node name="MainMenu" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_dngp3")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 1920)
+
+[node name="Background" type="TextureRect" parent="ParallaxBackground/ParallaxLayer"]
+mouse_filter = 2
+texture = ExtResource("2_mtj67")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_8w0gg")
+text = "Tic Tac Toe"
+
+[node name="NewButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

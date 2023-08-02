@@ -16,6 +16,7 @@ func _load_scene_cached(scene_path:String):
 	return _scene_cache[scene_path]
 
 func start_transition(transition_path:String, scene_path:String):
+	print("Starting transition to: %s" % scene_path)
 	if _busy:
 		return
 	
@@ -26,7 +27,7 @@ func start_transition(transition_path:String, scene_path:String):
 	transition.transition_complete.connect(_on_transition_complete)
 
 func _on_screen_obscured(scene_path:String):
-	var stage:MarginContainer = _main().get_node("Stage")
+	var stage:Node = _main().get_node("Stage")
 	for child in stage.get_children():
 		stage.remove_child(child)
 		child.queue_free()
@@ -35,8 +36,9 @@ func _on_screen_obscured(scene_path:String):
 	stage.add_child(scene)
 
 func _on_transition_complete():
-	var transition:MarginContainer = _main().get_node("Transition")
+	var transition:Node = _main().get_node("Transition")
 	for child in transition.get_children():
 		transition.remove_child(child)
 		child.queue_free()
+	print("Transition complete.")
 	_busy = false
