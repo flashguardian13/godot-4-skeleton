@@ -1,0 +1,13 @@
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bhsu11lhsgjhw"]
+
+[ext_resource type="FontFile" uid="uid://c5l3805f8su1n" path="res://fonts/EraserRegular.ttf" id="1_0tuy0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t1qxb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7j2tt"]
+
+[resource]
+Button/font_sizes/font_size = 128
+Button/fonts/font = ExtResource("1_0tuy0")
+Button/styles/disabled = SubResource("StyleBoxEmpty_t1qxb")
+Button/styles/normal = SubResource("StyleBoxEmpty_7j2tt")

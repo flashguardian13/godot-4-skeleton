@@ -14,3 +14,4 @@ func _on_quit_button_pressed():
 
 func _on_new_button_pressed():
 	print("[MainMenu] _on_new_button_pressed")
+	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
