@@ -71,4 +71,13 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Back to Main Menu"
 
+[node name="ResetButton" type="Button" parent="UI"]
+visible = false
+offset_left = 429.0
+offset_top = 372.0
+offset_right = 714.0
+offset_bottom = 426.0
+text = "Reset Board"
+
 [connection signal="pressed" from="UI/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="UI/ResetButton" to="." method="_on_reset_button_pressed"]
