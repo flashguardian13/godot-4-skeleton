@@ -1,9 +1,10 @@
 extends MarginContainer
 
-var board_state:Array = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 var board_marks:Array
 
 func _ready():
+	GameState.board_state_changed.connect(_on_board_state_changed)
+	
 	board_marks = [
 		[
 			$TextureRect/GridContainer/BoardMark,
@@ -29,20 +30,18 @@ func _ready():
 			mark.board_x = x
 			mark.board_y = y
 
-	reset()
+	_on_board_state_changed()
 
-func reset() -> void:
-	print("[TicTacToe] reset()")
-	board_state = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+func _on_board_state_changed() -> void:
 	_update_marks_from_state()
 	_enable_all_unmarked()
-	$UI/ResetButton.visible = false
+	$UI/ResetButton.visible = (GameState.get_winner() != " ")
 
 func _update_marks_from_state() -> void:
 	print("[TicTacToe] _update_marks_from_state()")
 	for y in board_marks.size():
 		for x in board_marks[y].size():
-			board_marks[y][x].get_node("Button").text = board_state[y][x]
+			board_marks[y][x].get_node("Button").text = GameState.get_mark(x, y)
 
 func _disable_all_marks() -> void:
 	print("[TicTacToe] _disable_all_marks()")
@@ -53,7 +52,7 @@ func _enable_all_unmarked() -> void:
 	print("[TicTacToe] _enable_all_unmarked()")
 	for y in board_marks.size():
 		for x in board_marks[y].size():
-			board_marks[y][x].get_node("Button").disabled = board_state[y][x] != " "
+			board_marks[y][x].get_node("Button").disabled = GameState.get_mark(x, y) != " "
 
 func _on_back_button_pressed():
 	print("[TicTacToe] _on_back_button_pressed()")
@@ -61,16 +60,13 @@ func _on_back_button_pressed():
 
 func _on_reset_button_pressed():
 	print("[TicTacToe] _on_reset_button_pressed()")
-	reset()
+	GameState.reset_board()
 
 func _on_board_marked(x:int, y:int, symbol:String) -> void:
 	print("[TicTacToe] _on_board_marked(%s, %s, %s)" % [x, y, symbol])
-	board_state[y][x] = symbol
-	_update_marks_from_state()
-	_disable_all_marks()
+	GameState.set_mark(x, y, symbol)
 
-	if _get_winner() != " ":
-		$UI/ResetButton.visible = true
+	if GameState.get_winner() != " ":
 		return
 
 	if symbol == "O":
@@ -78,73 +74,12 @@ func _on_board_marked(x:int, y:int, symbol:String) -> void:
 	else:
 		_enable_all_unmarked()
 
-func _get_winner() -> String:
-	print("[TicTacToe] _get_winner()")
-	for y in board_state.size():
-		var row:Array = _get_row(y)
-		if _entire_array_equals(row, "O"):
-			return "O"
-		if _entire_array_equals(row, "X"):
-			return "X"
-
-	for x in board_state.size():
-		var column:Array = _get_column(x)
-		if _entire_array_equals(column, "O"):
-			return "O"
-		if _entire_array_equals(column, "X"):
-			return "X"
-
-	var diagonal:Array = _get_diagonal()
-	if _entire_array_equals(diagonal, "O"):
-		return "O"
-	if _entire_array_equals(diagonal, "X"):
-		return "X"
-
-	diagonal = _get_reverse_diagonal()
-	if _entire_array_equals(diagonal, "O"):
-		return "O"
-	if _entire_array_equals(diagonal, "X"):
-		return "X"
-
-	if _is_board_full():
-		return "?"
-
-	return " "
-
-func _get_row(y:int) -> Array:
-	return board_state[y].duplicate()
-
-func _get_column(x:int) -> Array:
-	return board_state.map(func(row): return row[x])
-
-func _get_diagonal() -> Array:
-	var diagonal:Array = []
-	for y in board_state.size():
-		diagonal.push_back(board_state[y][y])
-	return diagonal
-
-func _get_reverse_diagonal() -> Array:
-	var diagonal:Array = []
-	for y in board_state.size():
-		diagonal.push_back(board_state[y][board_state.size() - y - 1])
-	return diagonal
-
-func _entire_array_equals(array:Array, value) -> bool:
-	return array.all(func(x): return x == value)
-
-func _is_board_full() -> bool:
-	for y in board_state.size():
-		for x in board_state[y].size():
-			if board_state[y][x] == " ":
-				return false
-	return true
-
 func _do_computer_turn() -> void:
 	print("[TicTacToe] _do_computer_turn()")
 	var empty_spaces:Array = []
-	for y in board_state.size():
-		for x in board_state[y].size():
-			if board_state[y][x] == " ":
+	for y in GameState.board_size():
+		for x in GameState.board_size():
+			if GameState.get_mark(x, y) == " ":
 				empty_spaces.push_back(Vector2(x, y))
 
 	var scores:Array = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
@@ -152,8 +87,8 @@ func _do_computer_turn() -> void:
 	var o_count = 0
 	var x_count = 0
 
-	for y in board_state.size():
-		var row:Array = _get_row(y)
+	for y in GameState.board_size():
+		var row:Array = GameState.get_row(y)
 		o_count = row.count("O")
 		x_count = row.count("X")
 		if o_count > 0 && x_count < 1:
@@ -167,8 +102,8 @@ func _do_computer_turn() -> void:
 		for x in row.size():
 			scores[y][x] += score
 
-	for x in board_state.size():
-		var column:Array = _get_column(x)
+	for x in GameState.board_size():
+		var column:Array = GameState.get_column(x)
 		o_count = column.count("O")
 		x_count = column.count("X")
 		if o_count > 0 && x_count < 1:
@@ -182,7 +117,7 @@ func _do_computer_turn() -> void:
 		for y in column.size():
 			scores[y][x] += score
 
-	var diagonal:Array = _get_diagonal()
+	var diagonal:Array = GameState.get_diagonal()
 	o_count = diagonal.count("O")
 	x_count = diagonal.count("X")
 	if o_count > 0 && x_count < 1:
@@ -196,7 +131,7 @@ func _do_computer_turn() -> void:
 	for y in diagonal.size():
 		scores[y][y] += score
 
-	diagonal = _get_reverse_diagonal()
+	diagonal = GameState.get_reverse_diagonal()
 	o_count = diagonal.count("O")
 	x_count = diagonal.count("X")
 	if o_count > 0 && x_count < 1:

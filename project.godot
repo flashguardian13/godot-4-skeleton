@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Transitions="*res://source/singletons/transitions.gd"
+GameState="*res://source/singletons/game_state.gd"
+Saves="*res://source/singletons/saves.gd"
 
 [rendering]
 

@@ -14,4 +14,15 @@ func _on_quit_button_pressed():
 
 func _on_new_button_pressed():
 	print("[MainMenu] _on_new_button_pressed")
+	GameState.reset_board()
 	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
+
+func _on_resume_button_pressed():
+	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
+
+func _on_load_button_pressed():
+	Saves.load_by_name("game")
+	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
+
+func _on_save_button_pressed():
+	Saves.save_by_name("game")
