@@ -3,18 +3,23 @@ extends Node
 signal board_state_changed
 
 var _board_state:Array = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+var is_active:bool = false :
+	get:
+		return is_active
 
 func to_json() -> Dictionary:
 	return { "board": _board_state }
 
 func from_json(json:Dictionary):
 	_board_state = json["board"]
+	is_active = true
 
 func reset_board() -> void:
 	for y in _board_state.size():
 		for x in _board_state[y].size():
 			_board_state[y][x] = " "
 	emit_signal("board_state_changed")
+	is_active = true
 
 func board_size() -> int:
 	return _board_state.size()

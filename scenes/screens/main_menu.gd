@@ -3,10 +3,15 @@ extends MarginContainer
 const BG_SCROLL_SPEED:Vector2 = Vector2(10, 10)
 
 func _ready():
-	pass
+	_update_buttons()
 
 func _process(delta):
 	$ParallaxBackground.scroll_offset += BG_SCROLL_SPEED * delta
+
+func _update_buttons() -> void:
+	$CenterContainer/VBoxContainer/ResumeButton.visible = GameState.is_active
+	$CenterContainer/VBoxContainer/SaveButton.visible = GameState.is_active
+	$CenterContainer/VBoxContainer/LoadButton.visible = Saves.get_save_names().size() > 0
 
 func _on_quit_button_pressed():
 	print("[MainMenu] _on_quit_button_pressed")

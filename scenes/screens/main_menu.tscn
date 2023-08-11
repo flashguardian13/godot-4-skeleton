@@ -36,28 +36,28 @@ layout_mode = 2
 theme = ExtResource("3_8w0gg")
 text = "Tic Tac Toe"
 
-[node name="NewButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "New Game"
-
 [node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
-
-[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-text = "Load"
 
 [node name="SaveButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Save"
 
+[node name="NewButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "New Game"
+
+[node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
