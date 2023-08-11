@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxe6d461gugm0"]
+[gd_scene load_steps=3 format=3 uid="uid://cxe6d461gugm0"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_cckv4"]
+[ext_resource type="PackedScene" uid="uid://dvpvbh4qwoiv8" path="res://scenes/popups/save_first.tscn" id="3_tm2ma"]
 
 [node name="Main" type="MarginContainer" groups=["main"]]
 anchors_preset = 15
@@ -28,3 +29,5 @@ layer = -1
 [node name="Transition" type="CanvasLayer" parent="."]
 
 [node name="Popups" type="CanvasLayer" parent="."]
+
+[node name="SaveFirst" parent="Popups" instance=ExtResource("3_tm2ma")]

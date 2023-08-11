@@ -15,10 +15,34 @@ func _update_buttons() -> void:
 
 func _on_quit_button_pressed():
 	print("[MainMenu] _on_quit_button_pressed")
+	if GameState.is_active:
+		var verdict:String = await Popups.save_first()
+		match verdict:
+			"confirmed":
+				Saves.save_by_name("game")
+			"denied":
+				pass
+			"canceled":
+				return
+			_:
+				assert(false, "Unexpected verdict from save_first: '%s'" % verdict)
+
 	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 func _on_new_button_pressed():
 	print("[MainMenu] _on_new_button_pressed")
+	if GameState.is_active:
+		var verdict:String = await Popups.save_first()
+		match verdict:
+			"confirmed":
+				Saves.save_by_name("game")
+			"denied":
+				pass
+			"canceled":
+				return
+			_:
+				assert(false, "Unexpected verdict from save_first: '%s'" % verdict)
+
 	GameState.reset_board()
 	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
 
@@ -26,6 +50,18 @@ func _on_resume_button_pressed():
 	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
 
 func _on_load_button_pressed():
+	if GameState.is_active:
+		var verdict:String = await Popups.save_first()
+		match verdict:
+			"confirmed":
+				Saves.save_by_name("game")
+			"denied":
+				pass
+			"canceled":
+				return
+			_:
+				assert(false, "Unexpected verdict from save_first: '%s'" % verdict)
+
 	Saves.load_by_name("game")
 	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
 
