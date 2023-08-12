@@ -19,7 +19,9 @@ func _on_quit_button_pressed():
 		var verdict:String = await Popups.save_first()
 		match verdict:
 			"confirmed":
-				Saves.save_by_name("game")
+				var should_continue:bool = await _select_game_and_save()
+				if !should_continue:
+					return
 			"denied":
 				pass
 			"canceled":
@@ -35,7 +37,9 @@ func _on_new_button_pressed():
 		var verdict:String = await Popups.save_first()
 		match verdict:
 			"confirmed":
-				Saves.save_by_name("game")
+				var should_continue:bool = await _select_game_and_save()
+				if !should_continue:
+					return
 			"denied":
 				pass
 			"canceled":
@@ -54,7 +58,9 @@ func _on_load_button_pressed():
 		var verdict:String = await Popups.save_first()
 		match verdict:
 			"confirmed":
-				Saves.save_by_name("game")
+				var should_continue:bool = await _select_game_and_save()
+				if !should_continue:
+					return
 			"denied":
 				pass
 			"canceled":
@@ -66,4 +72,10 @@ func _on_load_button_pressed():
 	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
 
 func _on_save_button_pressed():
-	Saves.save_by_name("game")
+	await _select_game_and_save()
+
+func _select_game_and_save() -> bool:
+	var result:Dictionary = await Popups.select_save()
+	if result["selected"]:
+		Saves.save_by_name(result["name"])
+	return result["selected"]

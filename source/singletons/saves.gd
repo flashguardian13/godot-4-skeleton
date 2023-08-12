@@ -28,6 +28,15 @@ func validate_save_path(path:String) -> bool:
 		return false
 	return true
 
+func get_save_info(name:String) -> Dictionary:
+	_ensure_save_folder()
+	var path:String = name_to_path(name)
+	assert(validate_save_path(path), "Save path '%s' is invalid!" % path)
+	assert(FileAccess.file_exists(path), "File '%s' does not exist!" % path)
+	var t:Dictionary = Time.get_datetime_dict_from_unix_time(FileAccess.get_modified_time(path))
+	var t_str:String = "%d-%d-%d, %d:%02d:%02d" % [t["year"], t["month"], t["day"], t["hour"], t["minute"], t["second"]]
+	return { "name": name, "date": t_str }
+
 func save_by_name(name:String) -> void:
 	save_to_file(name_to_path(name))
 
