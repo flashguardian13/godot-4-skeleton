@@ -17,30 +17,39 @@ func _update_saved_game_buttons() -> void:
 	while index < children.size() || index < save_names.size():
 		if index < save_names.size():
 			info = Saves.get_save_info(save_names[index])
+
 		if index < children.size():
 			btn = children[index]
+			btn.pressed.disconnect(_on_saved_game_pressed)
 		else:
 			btn = saved_game_button.instantiate()
-			btn.pressed.connect(_on_saved_game_pressed.bind(info["name"]))
 			$ScrollContainer/VBoxContainer.add_child(btn)
+
 		if index < save_names.size():
 			btn.update_display(info)
+			print("[SaveSelect] connecting save game button for '%s'" % info["name"])
+			btn.pressed.connect(_on_saved_game_pressed.bind(info["name"]))
 		else:
-			btn.pressed.disconnect(_on_saved_game_pressed)
 			$ScrollContainer/VBoxContainer.remove_child(btn)
 			btn.queue_free()
+
 		index += 1
 
 func _on_close_requested():
+	print("[SaveSelect] _on_close_requested")
 	emit_signal("resolved", { "selected": false })
 	hide()
 
 func _on_go_back_requested():
+	print("[SaveSelect] _on_go_back_requested")
 	emit_signal("resolved", { "selected": false })
 	hide()
 
 func _on_save_as_button_pressed():
+	print("[SaveSelect] _on_save_as_button_pressed")
 	pass # Replace with function body.
 
 func _on_saved_game_pressed(name:String):
+	print("[SaveSelect] _on_saved_game_pressed('%s')" % name)
 	emit_signal("resolved", { "selected": true, "name": name })
+	hide()
