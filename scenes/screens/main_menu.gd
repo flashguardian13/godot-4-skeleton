@@ -68,14 +68,23 @@ func _on_load_button_pressed():
 			_:
 				assert(false, "Unexpected verdict from save_first: '%s'" % verdict)
 
-	Saves.load_by_name("game")
+	var should_continue:bool = await _select_game_and_load()
+	if !should_continue:
+		return
+
 	Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res://scenes/screens/tic_tac_toe.tscn")
 
 func _on_save_button_pressed():
 	await _select_game_and_save()
 
 func _select_game_and_save() -> bool:
-	var result:Dictionary = await Popups.select_save()
+	var result:Dictionary = await Popups.select_save("save")
 	if result["selected"]:
 		Saves.save_by_name(result["name"])
+	return result["selected"]
+
+func _select_game_and_load() -> bool:
+	var result:Dictionary = await Popups.select_save("load")
+	if result["selected"]:
+		Saves.load_by_name(result["name"])
 	return result["selected"]

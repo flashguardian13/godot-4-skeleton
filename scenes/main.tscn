@@ -20,7 +20,7 @@ layer = -2
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
-color = Color(0.745098, 0.431373, 0.8, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Stage" type="CanvasLayer" parent="."]
 layer = -1

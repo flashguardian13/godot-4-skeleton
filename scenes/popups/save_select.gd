@@ -4,6 +4,15 @@ var saved_game_button:PackedScene = preload("res://scenes/ui/saved_game.tscn")
 
 signal resolved(result)
 
+func set_select_mode(mode:String) -> void:
+	match mode:
+		"load":
+			$ScrollContainer/VBoxContainer/SaveAsButton.visible = false
+		"save":
+			$ScrollContainer/VBoxContainer/SaveAsButton.visible = true
+		_:
+			assert(false, "[SaveSelect] Unexpected selection mode: '' %s" % mode)
+
 func _on_about_to_popup():
 	_update_saved_game_buttons()
 

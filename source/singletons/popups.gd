@@ -8,7 +8,8 @@ func save_first() -> String:
 	cd.popup_centered()
 	return await cd.verdict
 
-func select_save() -> Dictionary:
+func select_save(mode:String) -> Dictionary:
 	var cd:Window = _get_main().get_node("Popups/SaveSelect")
+	cd.set_select_mode(mode)
 	cd.popup_centered()
 	return await cd.resolved
