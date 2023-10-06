@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://0st7rqjjq6nd"]
 
-[ext_resource type="FontFile" uid="uid://c6wudg3frcwwj" path="res://fonts/AAntaraDistance-EaJlj.otf" id="1_d7jic"]
+[ext_resource type="FontFile" uid="uid://rvf5eqa30qf7" path="res://fonts/foughtknight.ttf" id="1_o62gt"]
 
 [resource]
-default_font = ExtResource("1_d7jic")
+default_font = ExtResource("1_o62gt")
 default_font_size = 48
-Label/colors/font_color = Color(1, 0.501961, 0.752941, 1)
-Label/colors/font_outline_color = Color(1, 1, 0.752941, 1)
+Label/colors/font_color = Color(0, 0, 0, 0)
+Label/colors/font_outline_color = Color(0.75, 0.75, 0.75, 1)
 Label/constants/outline_size = 5

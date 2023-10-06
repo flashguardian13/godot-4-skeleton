@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4lv15jg33myb"
-path="res://.godot/imported/lekheelay_symbol_256.png-99cd6ba0aa085b20f83c172e74f37eba.ctex"
+uid="uid://db5lhajemmcj8"
+path="res://.godot/imported/shuriken_logo_transparent.png-5ab0885813e0d88556893647a87e049d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/lekheelay_symbol_256.png"
-dest_files=["res://.godot/imported/lekheelay_symbol_256.png-99cd6ba0aa085b20f83c172e74f37eba.ctex"]
+source_file="res://images/shuriken_logo_transparent.png"
+dest_files=["res://.godot/imported/shuriken_logo_transparent.png-5ab0885813e0d88556893647a87e049d.ctex"]
 
 [params]
 
