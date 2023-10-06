@@ -4,8 +4,11 @@ var saved_game_button:PackedScene = preload("res://scenes/ui/saved_game.tscn")
 
 signal resolved(result)
 
+var select_mode:String = "load"
+
 func set_select_mode(mode:String) -> void:
-	match mode:
+	select_mode = mode
+	match select_mode:
 		"load":
 			$ScrollContainer/VBoxContainer/SaveAsButton.visible = false
 		"save":
@@ -46,19 +49,29 @@ func _update_saved_game_buttons() -> void:
 
 func _on_close_requested():
 	print("[SaveSelect] _on_close_requested")
-	emit_signal("resolved", { "selected": false })
 	hide()
+	emit_signal("resolved", { "selected": false })
 
 func _on_go_back_requested():
 	print("[SaveSelect] _on_go_back_requested")
-	emit_signal("resolved", { "selected": false })
 	hide()
+	emit_signal("resolved", { "selected": false })
 
 func _on_save_as_button_pressed():
 	print("[SaveSelect] _on_save_as_button_pressed")
-	pass # Replace with function body.
+	var resolution:Dictionary = await Popups.save_as()
+	if resolution["entered"]:
+		_on_saved_game_pressed(resolution["name"])
 
 func _on_saved_game_pressed(name:String):
 	print("[SaveSelect] _on_saved_game_pressed('%s')" % name)
-	emit_signal("resolved", { "selected": true, "name": name })
-	hide()
+	var confirmed:bool = true
+	if select_mode == "save" && Saves.has_game_name(name):
+		confirmed = await Popups.confirm_action(
+			"Overwrite save?",
+			"Really replace saved game '%s' with the current game's progress?" % name
+		)
+	
+	if confirmed:
+		hide()
+		emit_signal("resolved", { "selected": true, "name": name })

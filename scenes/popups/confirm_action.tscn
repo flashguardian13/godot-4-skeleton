@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://d60edpjqrsma"]
+
+[ext_resource type="Script" path="res://scenes/popups/confirm_action.gd" id="1_x3r13"]
+
+[node name="ConfirmAction" type="ConfirmationDialog"]
+initial_position = 1
+size = Vector2i(402, 100)
+unresizable = true
+popup_window = true
+ok_button_text = "YES"
+dialog_text = "There is a game in progress. Do the thing anyway?"
+dialog_hide_on_ok = false
+cancel_button_text = "No"
+script = ExtResource("1_x3r13")
+
+[connection signal="canceled" from="." to="." method="_on_canceled"]
+[connection signal="confirmed" from="." to="." method="_on_confirmed"]

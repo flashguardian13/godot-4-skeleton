@@ -15,6 +15,10 @@ func get_save_names() -> Array:
 		saves.push_back(path_to_name(filename))
 	return saves
 
+func has_game_name(name:String) -> bool:
+	var canonical_name:String = path_to_name(name_to_path(name))
+	return get_save_names().has(canonical_name)
+
 func path_to_name(path:String) -> String:
 	return path.split("/")[-1].split(".")[0].replace("_", " ")
 

@@ -13,5 +13,5 @@ func _on_confirmed():
 	emit_signal("verdict", "confirmed")
 
 func _on_custom_action(action):
-	emit_signal("verdict", action)
 	hide()
+	emit_signal("verdict", action)

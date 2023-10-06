@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxe6d461gugm0"]
+[gd_scene load_steps=6 format=3 uid="uid://cxe6d461gugm0"]
 
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_cckv4"]
 [ext_resource type="PackedScene" uid="uid://bsw2guwlntowv" path="res://scenes/popups/save_select.tscn" id="3_6nf7o"]
 [ext_resource type="PackedScene" uid="uid://dvpvbh4qwoiv8" path="res://scenes/popups/save_first.tscn" id="3_tm2ma"]
+[ext_resource type="PackedScene" uid="uid://cx2bbps5kffn8" path="res://scenes/popups/save_as.tscn" id="4_f7402"]
+[ext_resource type="PackedScene" uid="uid://d60edpjqrsma" path="res://scenes/popups/confirm_action.tscn" id="4_qcpha"]
 
 [node name="Main" type="MarginContainer" groups=["main"]]
 anchors_preset = 15
@@ -35,3 +37,8 @@ layer = -1
 
 [node name="SaveSelect" parent="Popups" instance=ExtResource("3_6nf7o")]
 visible = false
+
+[node name="SaveAs" parent="Popups" instance=ExtResource("4_f7402")]
+visible = false
+
+[node name="ConfirmAction" parent="Popups" instance=ExtResource("4_qcpha")]
