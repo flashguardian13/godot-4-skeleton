@@ -2,9 +2,19 @@ extends MarginContainer
 
 var board_marks:Array
 
+var chalk_sounds:Array = []
+var board_erase_sound:AudioStream = null
+
 func _ready():
 	GameState.board_state_changed.connect(_on_board_state_changed)
-	
+
+	chalk_sounds = [
+		ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_001_51971.mp3"),
+		ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_005_51975.mp3"),
+		ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_006_51976.mp3")
+	]
+	board_erase_sound = ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalkboard_eraser_duster_rub_007_51983.mp3")
+
 	board_marks = [
 		[
 			$TextureRect/GridContainer/BoardMark,
@@ -44,7 +54,14 @@ func _update_marks_from_state() -> void:
 	print("[TicTacToe] _update_marks_from_state()")
 	for y in board_marks.size():
 		for x in board_marks[y].size():
-			board_marks[y][x].get_node("Button").text = GameState.get_mark(x, y)
+			var mark = board_marks[y][x]
+			var button:Button = mark.get_node("Button")
+			var chara:String = GameState.get_mark(x, y)
+			if button.text != chara && chara != " ":
+				var player:AudioStreamPlayer2D = mark.get_node("AudioStreamPlayer2D")
+				player.stream = chalk_sounds.pick_random()
+				player.play()
+			button.text = chara
 
 func _disable_all_marks() -> void:
 	print("[TicTacToe] _disable_all_marks()")
@@ -64,6 +81,9 @@ func _on_back_button_pressed():
 func _on_reset_button_pressed():
 	print("[TicTacToe] _on_reset_button_pressed()")
 	GameState.reset_board()
+	var player:AudioStreamPlayer2D = board_marks[1][1].get_node("AudioStreamPlayer2D")
+	player.stream = board_erase_sound
+	player.play()
 
 func _on_board_marked(x:int, y:int, symbol:String) -> void:
 	print("[TicTacToe] _on_board_marked(%s, %s, %s)" % [x, y, symbol])
@@ -79,6 +99,7 @@ func _on_board_marked(x:int, y:int, symbol:String) -> void:
 
 func _do_computer_turn() -> void:
 	print("[TicTacToe] _do_computer_turn()")
+	await get_tree().create_timer(1).timeout
 	var empty_spaces:Array = []
 	for y in GameState.board_size():
 		for x in GameState.board_size():

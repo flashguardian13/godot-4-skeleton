@@ -21,4 +21,7 @@ layout_mode = 2
 theme = ExtResource("1_1ikoj")
 text = " "
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"Sound"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
