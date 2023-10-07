@@ -49,16 +49,19 @@ text = "Volume"
 
 [node name="SoundVolumeSlider" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
 layout_mode = 2
+bus_name = "Sound"
 
 [node name="Label" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer/SoundVolumeSlider" index="0"]
 text = "Sounds"
 
 [node name="MusicVolumeSlider" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
 layout_mode = 2
+bus_name = "Music"
 
 [node name="Label" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer/MusicVolumeSlider" index="0"]
 text = "Music"
 
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
 [connection signal="go_back_requested" from="." to="." method="_on_go_back_requested"]
 
