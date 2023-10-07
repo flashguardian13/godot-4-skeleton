@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3uetocx2ghca"]
+
+[ext_resource type="PackedScene" uid="uid://p61u8ao4mh85" path="res://scenes/components/volume_slider.tscn" id="1_clws8"]
+[ext_resource type="Script" path="res://scenes/popups/settings.gd" id="1_r7sc3"]
+
+[node name="settings" type="Window"]
+title = "Settings"
+initial_position = 2
+size = Vector2i(500, 126)
+wrap_controls = true
+transient = true
+exclusive = true
+unresizable = true
+popup_window = true
+min_size = Vector2i(500, 100)
+max_size = Vector2i(1000, 600)
+script = ExtResource("1_r7sc3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="MainVolumeSlider" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MainVolumeSlider" index="0"]
+text = "Volume"
+
+[node name="SoundVolumeSlider" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundVolumeSlider" index="0"]
+text = "Sounds"
+
+[node name="MusicVolumeSlider" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
+layout_mode = 2
+
+[node name="Label" parent="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" index="0"]
+text = "Music"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="go_back_requested" from="." to="." method="_on_go_back_requested"]
+
+[editable path="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MainVolumeSlider"]
+[editable path="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/SoundVolumeSlider"]
+[editable path="VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/MusicVolumeSlider"]

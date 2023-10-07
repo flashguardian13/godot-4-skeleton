@@ -25,3 +25,7 @@ func save_as() -> Dictionary:
 	var cd:ConfirmationDialog = _get_main().get_node("Popups/SaveAs")
 	cd.popup_centered()
 	return await cd.resolved
+
+func settings() -> void:
+	var settings:Window = _get_main().get_node("Popups/Settings")
+	settings.popup_centered()
