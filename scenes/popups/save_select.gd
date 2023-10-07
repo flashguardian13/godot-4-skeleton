@@ -47,6 +47,9 @@ func _update_saved_game_buttons() -> void:
 
 		index += 1
 
+	var content_height:float = $ScrollContainer/VBoxContainer.get_minimum_size().y
+	min_size.y = clampf(content_height, 100.0, 600.0)
+
 func _on_close_requested():
 	print("[SaveSelect] _on_close_requested")
 	hide()
