@@ -32,6 +32,9 @@ func _ready():
 
 	_on_board_state_changed()
 
+func _on_tree_entered():
+	Music.get_player().cross_fade_to("res://sounds/music/music_zapsplat_game_music_zen_calm_soft_arpeggios_013.mp3")
+
 func _on_board_state_changed() -> void:
 	_update_marks_from_state()
 	_enable_all_unmarked()

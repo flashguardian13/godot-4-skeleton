@@ -8,6 +8,9 @@ func _ready():
 func _process(delta):
 	$ParallaxBackground.scroll_offset += BG_SCROLL_SPEED * delta
 
+func _on_tree_entered():
+	Music.get_player().cross_fade_to("res://sounds/music/music_zapsplat_game_music_childrens_soft_warm_cuddly_calm_015.mp3")
+
 func _update_buttons() -> void:
 	$CenterContainer/VBoxContainer/ResumeButton.visible = GameState.is_active
 	$CenterContainer/VBoxContainer/SaveButton.visible = GameState.is_active

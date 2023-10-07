@@ -56,6 +56,7 @@ text = "Load"
 layout_mode = 2
 text = "Quit"
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/SaveButton" to="." method="_on_save_button_pressed"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]

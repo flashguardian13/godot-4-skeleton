@@ -1,6 +1,6 @@
 extends Window
 
-var saved_game_button:PackedScene = preload("res://scenes/ui/saved_game.tscn")
+var saved_game_button:PackedScene = preload("res://scenes/components/saved_game.tscn")
 
 signal resolved(result)
 

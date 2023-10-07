@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsw2guwlntowv"]
 
 [ext_resource type="Script" path="res://scenes/popups/save_select.gd" id="1_mhpl6"]
-[ext_resource type="PackedScene" uid="uid://3u3rrddd76a0" path="res://scenes/ui/saved_game.tscn" id="2_q7qke"]
+[ext_resource type="PackedScene" uid="uid://3u3rrddd76a0" path="res://scenes/components/saved_game.tscn" id="2_q7qke"]
 
 [node name="SaveSelect" type="Window"]
 title = "Choose a Save"

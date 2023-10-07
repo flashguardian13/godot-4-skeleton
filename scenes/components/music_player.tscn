@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dabbtko00dvfq"]
+
+[ext_resource type="Script" path="res://scenes/components/music_player.gd" id="1_a58tj"]
+
+[node name="MusicPlayer" type="Node2D" groups=["music_player"]]
+script = ExtResource("1_a58tj")
+
+[node name="BGMusicPlayer1" type="AudioStreamPlayer" parent="."]
+volume_db = -60.0
+bus = &"Music"
+
+[node name="BGMusicPlayer2" type="AudioStreamPlayer" parent="."]
+volume_db = -60.0
+bus = &"Music"

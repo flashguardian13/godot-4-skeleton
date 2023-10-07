@@ -21,6 +21,7 @@ Transitions="*res://source/singletons/transitions.gd"
 GameState="*res://source/singletons/game_state.gd"
 Saves="*res://source/singletons/saves.gd"
 Popups="*res://source/singletons/popups.gd"
+Music="*res://source/singletons/music.gd"
 
 [rendering]
 

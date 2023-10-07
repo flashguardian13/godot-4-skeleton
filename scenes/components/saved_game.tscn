@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3u3rrddd76a0"]
 
-[ext_resource type="Script" path="res://scenes/ui/saved_game.gd" id="1_csjys"]
+[ext_resource type="Script" path="res://scenes/components/saved_game.gd" id="1_csjys"]
 
 [node name="SavedGame" type="Button"]
 anchors_preset = 10
