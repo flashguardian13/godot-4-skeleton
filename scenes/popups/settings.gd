@@ -1,7 +1,15 @@
 extends Window
 
 func _ready():
-	pass
+	var audio_vbox:VBoxContainer = $VBoxContainer/AudioPanel/MarginContainer/VBoxContainer
+	var audio_labels:Array = [
+		audio_vbox.get_node("MainVolumeSlider/Label"),
+		audio_vbox.get_node("SoundVolumeSlider/Label"),
+		audio_vbox.get_node("MusicVolumeSlider/Label")
+	]
+	var audio_label_widths:Array = audio_labels.map(func(label): return label.size.x)
+	for label in audio_labels:
+		label.custom_minimum_size.x = audio_label_widths.max()
 
 func _process(delta):
 	pass
