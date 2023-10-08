@@ -8,6 +8,7 @@ func _show_splash_screen():
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST || what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		Config.save()
 		get_tree().quit()
 
 func _input(event):

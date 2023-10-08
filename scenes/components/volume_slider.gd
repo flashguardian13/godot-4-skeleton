@@ -10,3 +10,4 @@ func update_from_bus() -> void:
 
 func _on_h_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(_bus_index(), linear_to_db(value))
+	Config.set_value("volume.%s" % bus_name, value)

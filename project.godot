@@ -23,6 +23,7 @@ Saves="*res://source/singletons/saves.gd"
 Popups="*res://source/singletons/popups.gd"
 Music="*res://source/singletons/music.gd"
 ButtonSounds="res://source/singletons/button_sounds.gd"
+Config="*res://source/singletons/config.gd"
 
 [rendering]
 
