@@ -1,6 +1,10 @@
 extends Window
 
+# A popup where the user can fiddle with various game settings.
+
 func _ready():
+	# Set all volume slider labels to be the same width so everything lines up
+	# nicely.
 	var audio_vbox:VBoxContainer = $VBoxContainer/AudioPanel/MarginContainer/VBoxContainer
 	var audio_labels:Array = [
 		audio_vbox.get_node("MainVolumeSlider/Label"),
@@ -14,6 +18,7 @@ func _ready():
 func _input(event):
 	if event is InputEventKey:
 		var key_event:InputEventKey = event
+		# Hide when escape key is pressed
 		if key_event.pressed:
 			if key_event.keycode == KEY_ESCAPE:
 				hide()
@@ -25,6 +30,8 @@ func _on_go_back_requested():
 	hide()
 
 func _on_about_to_popup():
+	# Before we appear, we want to update our volume sliders to reflect the
+	# current volume settings of the various audio buses.
 	var audio_vbox:VBoxContainer = $VBoxContainer/AudioPanel/MarginContainer/VBoxContainer
 	var volume_slider_names:Array = ["MainVolumeSlider", "SoundVolumeSlider", "MusicVolumeSlider"]
 	for slider_name in volume_slider_names:

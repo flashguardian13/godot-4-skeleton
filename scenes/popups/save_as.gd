@@ -1,8 +1,14 @@
 extends ConfirmationDialog
 
+# Prompts the user for a name for a saved game. The caller should listen for the
+# "resolved" signal and expect a Dictionary with the following keys:
+# entered: true if the user entered a name, false if the user canceled
+# name: the game name chosen by the user
+
 signal resolved(info)
 
 func _ready():
+  # Tells this dialog where its text box is.
 	register_text_enter($VBoxContainer/LineEdit)
 
 func _on_canceled():
