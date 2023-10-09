@@ -20,8 +20,7 @@ var board_marks:Array
 # board.
 var chalk_sounds:Array = []
 
-# A local audio stream for playing non-positional sounds. Only used for one
-# event, hence the name.
+# This will hold our board-erasing sound effect.
 var board_erase_sound:AudioStream = null
 
 func _ready():
@@ -226,3 +225,6 @@ func _do_computer_turn() -> void:
 	var pos:Vector2 = spaces_by_score[best_score].pick_random()
 	# Mark that square!
 	_on_board_marked(pos.x, pos.y, "X")
+
+func _on_settings_button_pressed():
+	Popups.settings()

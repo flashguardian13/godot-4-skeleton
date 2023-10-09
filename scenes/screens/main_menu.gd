@@ -110,3 +110,6 @@ func _select_game_and_load() -> bool:
 	if result["selected"]:
 		Saves.load_by_name(result["name"])
 	return result["selected"]
+
+func _on_settings_button_pressed():
+	Popups.settings()
