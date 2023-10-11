@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://3u3rrddd76a0" path="res://scenes/components/saved_game.tscn" id="2_q7qke"]
 
 [node name="SaveSelect" type="Window"]
-title = "Choose a Save"
+title = "CHOOSE_A_SAVE"
 initial_position = 1
 size = Vector2i(400, 100)
 wrap_controls = true
@@ -34,7 +34,7 @@ size_flags_vertical = 3
 
 [node name="SaveAsButton" type="Button" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save As ..."
+text = "SAVE_AS"
 
 [node name="SavedGame" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_q7qke")]
 layout_mode = 2

@@ -57,20 +57,6 @@ layout_mode = 2
 
 [node name="UI" type="Node2D" parent="."]
 
-[node name="BackButton" type="Button" parent="UI"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 18.0
-offset_top = 16.0
-offset_right = 175.0
-offset_bottom = 47.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Back to Main Menu"
-
 [node name="ResetButton" type="Button" parent="UI"]
 visible = false
 offset_left = 429.0
@@ -79,14 +65,28 @@ offset_right = 714.0
 offset_bottom = 426.0
 text = "Reset Board"
 
-[node name="SettingsButton" type="Button" parent="UI"]
-offset_left = 1064.0
-offset_top = 16.0
-offset_right = 1134.0
-offset_bottom = 47.0
-text = "Settings"
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="BackButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "BACK_TO_MAIN_MENU"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "SETTINGS"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
-[connection signal="pressed" from="UI/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="UI/ResetButton" to="." method="_on_reset_button_pressed"]
-[connection signal="pressed" from="UI/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

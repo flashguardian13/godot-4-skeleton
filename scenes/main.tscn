@@ -36,6 +36,7 @@ layer = -1
 [node name="Popups" type="CanvasLayer" parent="."]
 
 [node name="SaveFirst" parent="Popups" instance=ExtResource("3_tm2ma")]
+visible = false
 
 [node name="SaveSelect" parent="Popups" instance=ExtResource("3_6nf7o")]
 visible = false
@@ -44,6 +45,7 @@ visible = false
 visible = false
 
 [node name="ConfirmAction" parent="Popups" instance=ExtResource("4_qcpha")]
+visible = false
 
 [node name="Settings" parent="Popups" instance=ExtResource("6_187tk")]
 visible = false

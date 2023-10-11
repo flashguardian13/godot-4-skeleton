@@ -5,6 +5,7 @@
 [node name="ConfirmAction" type="ConfirmationDialog"]
 initial_position = 1
 size = Vector2i(402, 100)
+visible = true
 unresizable = true
 popup_window = true
 ok_button_text = "YES"

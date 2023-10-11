@@ -1,0 +1,25 @@
+keys,en,fr,es,ja
+RESUME,Resume,Reprenez,Reanuda,再開
+SAVE,Save,Enregistrez,Guardar,保存
+NEW_GAME,New Game,Nouvelle Partie,Nuevo Juego,新しいゲーム
+LOAD,Load,Chargez,Cargue,ロード
+SETTINGS,Settings,Paramètres,Configuraciónes,設定
+QUIT,Quit,Quittez,Salga,終了
+TIC_TAC_TOE,Tic Tac Toe,Tic Tac Toe,Tres En Raya,○×ゲーム
+SAVE_AS,Save As ...,Enregistrez sous ...,Guardar como ...,名前を付けて保存...
+ENTER_SAVE_NAME,Enter a name for your save:,Entrez un nom pour votre sauvegarde:,Ingrese un nombre para su guardado:,保存の名前を入力してください:
+SAVE_YOUR_GAME,Save Your Game?,Sauvegarder votre partie?,¿Guardar tu juego?,ゲームを保存しますか?
+UNSAVED_PROGRESS_WARNING,Any unsaved progress will be lost. Would you like to save your game first?,Toute progression non enregistrée sera perdue. Souhaitez-vous d'abord sauvegarder votre partie?,Cualquier progreso no guardado se perderá. ¿Quieres guardar tu juego primero?,保存されていない進行状況は失われます。 まずゲームを保存しますか?
+CHOOSE_A_SAVE,Choose a Save,Choisissez un Sauvegarde,Elige un guardado,保存を選択します
+AUDIO,Audio,L'audio,Audio,音声
+VOLUME,Volume,Volume,Volumen,音量
+SOUNDS,Sounds,Sons,Sonidos,音
+MUSIC,Music,Musique,Música,音楽
+GAMES_FOR_PLAYERS,Games for players,Jeux pour joueurs,Juegos para jugadoros,ゲーマーのゲーム
+BACK_TO_MAIN_MENU,Back to Main Menu,Retour au menu principal,Regresar al menú principal,メインメニューに戻る
+NO,No,Non,No,いいえ
+CANCEL,Cancel,Annuler,Cancelar,キャンセル
+OVERWRITE_SAVE,Overwrite save?,Écraser la sauvegarde?,¿Sobrescribir guardar?,上書き保存しますか？
+REALLY_REPLACE_SAVE,Really replace saved game '{save_name}' with the current game's progress?,Vraiment remplacer la partie sauvegardée '{save_name}' par la progression de la partie en cours?,¿Realmente reemplazar el juego '{save_name}' guardado con el progreso del juego actual?,本当に保存されたゲーム'{save_name}'を現在のゲームの進行状況に置き換えますか?
+OKAY,Okay,D'accord,Vale,はい
+YES,Yes,Oui,Si,ハイ

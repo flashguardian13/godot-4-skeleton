@@ -96,8 +96,8 @@ func _on_saved_game_pressed(name:String):
 	# If the user wants us to save over an existing game, get comfirmation.
 	if _select_mode == "save" && Saves.has_game_name(name):
 		confirmed = await Popups.confirm_action(
-			"Overwrite save?",
-			"Really replace saved game '%s' with the current game's progress?" % name
+			tr("OVERWRITE_SAVE"),
+			tr("REALLY_REPLACE_SAVE").format({save_name = name})
 		)
 
 	if confirmed:

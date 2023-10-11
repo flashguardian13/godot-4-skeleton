@@ -15,8 +15,8 @@ signal verdict(result)
 
 func _ready():
 	# Buttons are added manually to achieve desired left-to-right ordering
-	add_button("No", true, "denied")
-	add_cancel_button("Cancel")
+	add_button(tr("NO"), true, "denied")
+	add_cancel_button(tr("CANCEL"))
 
 func _on_canceled():
 	emit_signal("verdict", "canceled")

@@ -31,5 +31,5 @@ stretch_mode = 3
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("2_7siuv")
-text = "Games for Players"
+text = "GAMES_FOR_PLAYERS"
 horizontal_alignment = 1

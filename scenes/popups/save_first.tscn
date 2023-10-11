@@ -3,14 +3,15 @@
 [ext_resource type="Script" path="res://scenes/popups/save_first.gd" id="1_2pca0"]
 
 [node name="SaveFirst" type="AcceptDialog"]
-title = "Save Your Game?"
+title = "SAVE_YOUR_GAME"
 initial_position = 1
 size = Vector2i(400, 109)
+visible = true
 unresizable = true
 popup_window = true
 max_size = Vector2i(400, 16384)
-ok_button_text = "Yes"
-dialog_text = "Any unsaved progress will be lost. Would you like to save your game first?"
+ok_button_text = "YES"
+dialog_text = "UNSAVED_PROGRESS_WARNING"
 dialog_autowrap = true
 script = ExtResource("1_2pca0")
 

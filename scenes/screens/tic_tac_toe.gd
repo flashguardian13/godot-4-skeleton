@@ -5,9 +5,9 @@ extends MarginContainer
 # own! As such, documentation here will be minimal.
 #
 # I call this the UI for the game, but in reality there's a fair amount of game
-# behavior in here. It's probably a good idea to try and keep game state and
-# presentation separate as much as possible, but this is for a skeleton so I was
-# laaaaaaaazy.
+# behavior in here. It's probably a good idea to try and keep game state,
+# behavior, and presentation separate as much as possible, but this is for a
+# skeleton so I was laaaaaaaazy.
 
 # The path to our background music
 # Sound from Zapsplat.com

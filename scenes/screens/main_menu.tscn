@@ -34,31 +34,31 @@ mouse_filter = 2
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_8w0gg")
-text = "Tic Tac Toe"
+text = "TIC_TAC_TOE"
 
 [node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Resume"
+text = "RESUME"
 
 [node name="SaveButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save"
+text = "SAVE"
 
 [node name="NewButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "New Game"
+text = "NEW_GAME"
 
 [node name="LoadButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Load"
+text = "LOAD"
 
 [node name="SettingsButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Settings"
+text = "SETTINGS"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+text = "QUIT"
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]

@@ -25,6 +25,10 @@ Music="*res://source/singletons/music.gd"
 ButtonSounds="res://source/singletons/button_sounds.gd"
 Config="*res://source/singletons/config.gd"
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://text.en.translation", "res://text.es.translation", "res://text.fr.translation", "res://text.ja.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

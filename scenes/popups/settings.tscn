@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/popups/settings.gd" id="1_r7sc3"]
 
 [node name="settings" type="Window"]
-title = "Settings"
+title = "SETTINGS"
 initial_position = 2
 size = Vector2i(500, 126)
 wrap_controls = true
@@ -38,28 +38,28 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Audio"
+text = "AUDIO"
 horizontal_alignment = 1
 
 [node name="MainVolumeSlider" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
 layout_mode = 2
 
 [node name="Label" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer/MainVolumeSlider" index="0"]
-text = "Volume"
+text = "VOLUME"
 
 [node name="SoundVolumeSlider" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
 layout_mode = 2
 bus_name = "Sound"
 
 [node name="Label" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer/SoundVolumeSlider" index="0"]
-text = "Sounds"
+text = "SOUNDS"
 
 [node name="MusicVolumeSlider" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer" instance=ExtResource("1_clws8")]
 layout_mode = 2
 bus_name = "Music"
 
 [node name="Label" parent="VBoxContainer/AudioPanel/MarginContainer/VBoxContainer/MusicVolumeSlider" index="0"]
-text = "Music"
+text = "MUSIC"
 
 [connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
