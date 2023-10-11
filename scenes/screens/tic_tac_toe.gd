@@ -64,10 +64,12 @@ func _ready():
 	Music.get_player().cross_fade_to(BG_MUSIC_PATH)
 	# Now that everything is configured, go ahead and update the board.
 	_on_board_state_changed()
+	# Player plays first.
+	_enable_all_unmarked()
 
 func _on_board_state_changed() -> void:
+	print("[TicTacToe] _on_board_state_changed()")
 	_update_marks_from_state()
-	_enable_all_unmarked()
 	# Only show the reset button when the current game is done
 	$UI/ResetButton.visible = (GameState.get_winner() != " ")
 
@@ -115,9 +117,15 @@ func _on_reset_button_pressed():
 	var player:AudioStreamPlayer2D = board_marks[1][1].get_node("AudioStreamPlayer2D")
 	player.stream = board_erase_sound
 	player.play()
+	# Player plays first.
+	_enable_all_unmarked()
 
 func _on_board_marked(x:int, y:int, symbol:String) -> void:
 	print("[TicTacToe] _on_board_marked(%s, %s, %s)" % [x, y, symbol])
+	# Did the player just take their turn? If so, immediately stop listening for
+	# mark presses.
+	if symbol == "O":
+		_disable_all_marks()
 	# Update the game state by marking the given square for the given player
 	GameState.set_mark(x, y, symbol)
 	# Check for game over
