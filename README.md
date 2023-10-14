@@ -44,9 +44,9 @@ I don't need credit, but I wouldn't object either.
 
 ### Fonts
 
-Aantara Distance: wepfont, www.fontspace.com
-Eraser (Dust, Regular): David Rakowski, 1001fonts.com
-Fought Knight: Chequered Ink, 1001fonts.com
+* Aantara Distance: wepfont, www.fontspace.com
+* Eraser (Dust, Regular): David Rakowski, 1001fonts.com
+* Fought Knight: Chequered Ink, 1001fonts.com
 
 ### Sounds
 
