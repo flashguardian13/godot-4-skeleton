@@ -25,7 +25,7 @@ var board_erase_sound:AudioStream = null
 
 func _ready():
 	# Whenever the internal game state is updated, update our UI to match.
-	GameState.board_state_changed.connect(_on_board_state_changed)
+	GameState.game_state_changed.connect(_on_board_state_changed)
 	# Pre-load game sounds.
 	chalk_sounds = [
 		ResourceLoader.load("res://assets/sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_001_51971.mp3"),
@@ -111,7 +111,7 @@ func _on_back_button_pressed():
 func _on_reset_button_pressed():
 	print("[TicTacToe] _on_reset_button_pressed()")
 	# Start a new game
-	GameState.reset_board()
+	GameState.reset()
 	# Play a board-erasing sound. I chose to play this positionally, centered on
 	# the board. No real reason.
 	var player:AudioStreamPlayer2D = board_marks[1][1].get_node("AudioStreamPlayer2D")

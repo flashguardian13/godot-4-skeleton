@@ -4,18 +4,24 @@ extends Node
 # it can be accessed globally (as all Singletons can). One one game can be
 # active at a time.
 
+# ------------------------------------------------------------------------------
+# These GameState elements are not game-specific and re-usable.
+# ------------------------------------------------------------------------------
+
 # This signal should be broadcasted whenever any aspect of the game state has
 # changed. For more complex games, it may be desirable to additionally send
 # other, more specific signals.
-signal board_state_changed
-
-# This is the state of the game board, tracking what marks are in which squares.
-var _board_state:Array = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
+signal game_state_changed
 
 # If true, a game is in progress.
 var is_active:bool = false :
 	get:
 		return is_active
+
+# ------------------------------------------------------------------------------
+# These GameState elements are required, but should be modified to suit the game
+# we are building.
+# ------------------------------------------------------------------------------
 
 # Rolls our game data up into a JSON-compatible object which can be saved to
 # file.
@@ -26,16 +32,26 @@ func to_json() -> Dictionary:
 # exactly the state it was in when previously saved.
 func from_json(json:Dictionary):
 	_board_state = json["board"]
-	emit_signal("board_state_changed")
+	# Always do these.
+	emit_signal("game_state_changed")
 	is_active = true
 
 # Resets the game to its beginning state (as when choosing "New Game").
-func reset_board() -> void:
+func reset() -> void:
 	for y in _board_state.size():
 		for x in _board_state[y].size():
 			_board_state[y][x] = " "
-	emit_signal("board_state_changed")
+	# Always do these.
+	emit_signal("game_state_changed")
 	is_active = true
+
+# ------------------------------------------------------------------------------
+# These GameState elements are unique to our game. They should not be copied to
+# other games.
+# ------------------------------------------------------------------------------
+
+# This is the state of the game board, tracking what marks are in which squares.
+var _board_state:Array = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
 # Returns the dimensions of the board. (It's a square, so just one size.)
 func board_size() -> int:
@@ -48,7 +64,7 @@ func get_mark(x:int, y:int) -> String:
 # Sets the mark in the given square.
 func set_mark(x:int, y:int, mark:String) -> void:
 	_board_state[y][x] = mark
-	emit_signal("board_state_changed")
+	emit_signal("game_state_changed")
 
 # Determines if the game is in progress or has concluded with a winner or as a
 # tie. Returns a single-character code representing the game resolution state:

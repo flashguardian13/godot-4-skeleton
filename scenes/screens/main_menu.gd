@@ -58,7 +58,7 @@ func _on_new_button_pressed():
 			_:
 				assert(false, "Unexpected verdict from save_first: '%s'" % verdict)
 	# Restart the game
-	GameState.reset_board()
+	GameState.reset()
 	Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_TIC_TAC_TOE)
 
 func _on_resume_button_pressed():

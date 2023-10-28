@@ -140,8 +140,6 @@ This feature makes use of two singletons: GameState and Saves.
 
 GameState holds all data relating to a game in progress. Because it is a singleton, we can access game information from anywhere in our code. There are also helper functions for accessing this data, starting a new game, serializing the game state to a JSON-compatible structure, and restoring the game's state from such a structure. To save additional game data, add it to the JSON returned by the `to_json()` function, then modify the `from_json()` function to make use of that data (perhaps assigning some kind of useful default in case the data is absent).
 
-*TODO: Currently, there are a bunch of functions specific to the tic-tac-toe game in here. Perhaps these should be separated out in some way.*
-
 Saves is our interface to the saved game states on disk. It can tell us what saved games are present, get basic information about those saved games, load a saved game from file into the GameState singleton, and save the current game state to file. Saved game states are stored in JSON format. In your code, you should refer to saved games by their names (an identifier similar to the filename).
 
 The skeleton provides a number of popups relating to loading and saving that should offer the user a familiar and friendly experience. These are recommended.
