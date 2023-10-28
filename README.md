@@ -190,6 +190,7 @@ Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.S
 To understand how this is implemented, you may first want to look at `scenes/main.tscn` in the editor. At its root is a Main MarginContainer (fullscreen) with a number of CanvasLayers as children: Background, Stage, UI, Transition, and Popups. Screens are added as children of the Stage CanvasLayer, while transitions are added to the Transition layer.
 
 When a transition is called for with `Transitions.start_transition()`, the order of events is as follows:
+* The scene tree is paused. (Transitions are never paused.)
 * A new instance of the transition scene is added to the Transition layer.
 * The transition starts animating, gradually obscuring the window.
 * When the transition has obscured the entire window, it emits a "screen_obscured" signal.
@@ -197,8 +198,7 @@ When a transition is called for with `Transitions.start_transition()`, the order
 * The transition continues to animate, revealing the new screen.
 * When the transition has finished revealing the new screen, it emits a "transition_complete" signal.
 * The Transitions singleton, on receiving the "transition_complete" signal, removes ALL children from the Transition layer.
-
-*TODO: Screens should be paused while a transition is in progress, then unpaused when transition completes.*
+* The scene tree is unpaused.
 
 Note how I said above that transitions and screens are **instanced**. They do not need to be added to the Main scene in the Godot editor; they will be created as needed and then removed automatically. Do not rely on screen scenes to store game state; instead, store game state information in the GameState singleton.
 

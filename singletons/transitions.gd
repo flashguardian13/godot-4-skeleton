@@ -46,6 +46,8 @@ func start_transition(transition_path:String, scene_path:String):
 		return
 	print("Starting transition to: %s" % scene_path)
 	_busy = true
+	# Pause the game. (Transitions are never paused.)
+	get_tree().paused = true
 	# Instantiate the desired transition animation and add it to the scene tree.
 	var transition = _load_scene_cached(transition_path).instantiate()
 	_main().get_node("Transition").add_child(transition)
@@ -73,5 +75,7 @@ func _on_transition_complete():
 	for child in transition.get_children():
 		transition.remove_child(child)
 		child.queue_free()
+	# Resume gameplay.
+	get_tree().paused = false
 	print("Transition complete.")
 	_busy = false

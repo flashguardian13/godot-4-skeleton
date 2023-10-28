@@ -32,8 +32,10 @@ layer = -1
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Transition" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Popups" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="SaveFirst" parent="Popups" instance=ExtResource("3_tm2ma")]
 visible = false
@@ -51,3 +53,4 @@ visible = false
 visible = false
 
 [node name="MusicPlayer" parent="." instance=ExtResource("6_psxog")]
+process_mode = 3
