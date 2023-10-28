@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dslvmyex6ej16"]
 
 [ext_resource type="Script" path="res://scenes/screens/main_menu.gd" id="1_dngp3"]
-[ext_resource type="Texture2D" uid="uid://c011d6gtokfes" path="res://images/background-2015-420.jpg" id="2_mtj67"]
+[ext_resource type="Texture2D" uid="uid://c011d6gtokfes" path="res://assets/images/background-2015-420.jpg" id="2_mtj67"]
 [ext_resource type="Theme" uid="uid://ba3kjokv2haru" path="res://themes/main_menu_theme.tres" id="3_8w0gg"]
 
 [node name="MainMenu" type="MarginContainer"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bxaksfaf0qi78"]
 
 [ext_resource type="Script" path="res://scenes/screens/tic_tac_toe.gd" id="1_b6gdg"]
-[ext_resource type="Texture2D" uid="uid://cghpcwtbhktmf" path="res://images/tic-tac-toe-blackboard.jpg" id="1_uhjmd"]
-[ext_resource type="PackedScene" uid="uid://bqnfjkr7yril2" path="res://scenes/actors/board_mark.tscn" id="2_gmpax"]
+[ext_resource type="Texture2D" uid="uid://cghpcwtbhktmf" path="res://assets/images/tic-tac-toe-blackboard.jpg" id="1_uhjmd"]
+[ext_resource type="PackedScene" uid="uid://bqnfjkr7yril2" path="res://scenes/screens/tic_tac_toe/board_mark.tscn" id="2_gmpax"]
 
 [node name="TicTacToe" type="MarginContainer"]
 anchors_preset = 15

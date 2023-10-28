@@ -5,7 +5,7 @@ extends MarginContainer
 
 # The path to our background music
 # Sound from Zapsplat.com
-const BG_MUSIC_PATH:String = "res://sounds/music/music_zapsplat_game_music_childrens_soft_warm_cuddly_calm_015.mp3"
+const BG_MUSIC_PATH:String = "res://assets/music/music_zapsplat_game_music_childrens_soft_warm_cuddly_calm_015.mp3"
 
 # Controls the background's scroll speed (world units per second)
 const BG_SCROLL_SPEED:Vector2 = Vector2(10, 10)

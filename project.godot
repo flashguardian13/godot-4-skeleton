@@ -17,17 +17,17 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Transitions="*res://source/singletons/transitions.gd"
-GameState="*res://source/singletons/game_state.gd"
-Saves="*res://source/singletons/saves.gd"
-Popups="*res://source/singletons/popups.gd"
-Music="*res://source/singletons/music.gd"
-ButtonSounds="res://source/singletons/button_sounds.gd"
-Config="*res://source/singletons/config.gd"
+Transitions="*res://singletons/transitions.gd"
+GameState="*res://singletons/game_state.gd"
+Saves="*res://singletons/saves.gd"
+Popups="*res://singletons/popups.gd"
+Music="*res://singletons/music.gd"
+ButtonSounds="res://singletons/button_sounds.gd"
+Config="*res://singletons/config.gd"
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://text.en.translation", "res://text.es.translation", "res://text.fr.translation", "res://text.ja.translation")
+locale/translations=PackedStringArray("res://assets/text.en.translation", "res://assets/text.es.translation", "res://assets/text.fr.translation", "res://assets/text.ja.translation")
 
 [rendering]
 

@@ -1,0 +1,8 @@
+[gd_resource type="DynamicFont" load_steps=2 format=3]
+
+[ext_resource type="DynamicFontData" uid="uid://rny2w5abq3x6" path="res://assets/fonts/AAntaraDistance-OVA2e.ttf" id="1"]
+
+[resource]
+size = 48
+outline_size = 1
+font_data = ExtResource( 1 )

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgwkbh7xpbv1t"]
 
 [ext_resource type="Script" path="res://scenes/screens/splash.gd" id="1_77r7u"]
-[ext_resource type="Texture2D" uid="uid://db5lhajemmcj8" path="res://images/shuriken_logo_transparent.png" id="2_2k6o1"]
+[ext_resource type="Texture2D" uid="uid://db5lhajemmcj8" path="res://assets/images/shuriken_logo_transparent.png" id="2_2k6o1"]
 [ext_resource type="Theme" uid="uid://0st7rqjjq6nd" path="res://themes/logo_theme.tres" id="2_7siuv"]
 
 [node name="Splash" type="MarginContainer"]

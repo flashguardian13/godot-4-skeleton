@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://0st7rqjjq6nd"]
 
-[ext_resource type="FontFile" uid="uid://rvf5eqa30qf7" path="res://fonts/foughtknight.ttf" id="1_o62gt"]
+[ext_resource type="FontFile" uid="uid://rvf5eqa30qf7" path="res://assets/fonts/foughtknight.ttf" id="1_o62gt"]
 
 [resource]
 default_font = ExtResource("1_o62gt")

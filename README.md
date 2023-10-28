@@ -38,6 +38,27 @@ You will need Git to collaborate on this project. At this time, you do not need 
 
 Please follow the [Godot Style Guide](https://docs.godotengine.org/en/stable/tutorials/best_practices/project_organization.html#style-guide).
 
+You are encouraged to follow the existing file and folder layout, as follows:
+* assets: A place for all media and related content: images, audio, models, etc. This includes localization files.
+    * fonts
+    * images
+    * music
+    * sounds
+* scenes: Keep all your Godot scenes (.tscn files) in here. If a scene has an attached script (.gd), store it adjacent to the scene.
+    * components: General-use partial scenes that don't belong to any particular screen, popup, or otherwise.
+    * popups: Scenes intended to be shown over other game elements such as confirmation prompts or file selectors.
+    * screens: Scenes intended for gameplay, program flow, and the like. Typically fullscreen. Analogous to the individual pages that make up a website.
+    * transitions: Animated scenes which briefly obscure an old screen, then reveal a new one.
+* singletons: Back-end code, globally accessible. Not usually tied to any given scene. These can serve as APIs into key game functions.
+* themes: UI styling configurations (.tres)
+
+Scenes which are a sub-component of another scene should be stored in a subfolder of the parent scene's folder. You should Name the subfolder the same as the parent scene. For example, say we have a settings popup upon which there are multiple volume sliders. The file and folder layout should be as such:
+* scenes
+    * popups
+        * settings
+            * volume_slider.tscn
+        * settings.tscn
+
 ## Credits
 
 I don't need credit, but I wouldn't object either.
@@ -69,13 +90,13 @@ Most importantly, have a look at `scenes\main` (`.gd` and `.tscn` in the editor)
 Using the Music singleton, you can easily cross-fade to and from background music songs. A good place to do this is the `_ready()` function of the scene you are transitioning to. You'll need to provide the path to the audio resource to transition to.
 
 ```
-const BG_MUSIC_PATH:String = "res://sounds/music/background_music_01.mp3"
+const BG_MUSIC_PATH:String = "res://assets/music/background_music_01.mp3"
 Music.get_player().cross_fade_to(BG_MUSIC_PATH)
 ```
 
 **Key Files:**
 * scenes\components\music_player
-* source\singletons\music
+* singletons\music
 
 **Usage Examples:**
 * scenes\screens\main_menu
@@ -93,7 +114,7 @@ var music_volume:float = Config.get_value("volume.Music")
 Config.set_value("volume.Sound", 0.5)
 
 # Only pre-programmed keys are recognized. To add a new configuration key, add
-# it to the list of valid keys in source\singletons\config.
+# it to the list of valid keys in singletons\config.
 var valid_keys:Array = [
     ...
     "your.new.config.key",
@@ -105,13 +126,13 @@ Config.save()
 ```
 
 **Key Files:**
-* source\singletons\config
+* singletons\config
 
 **Usage Examples:**
-* scenes\components\volume_slider
 * scenes\main
 * scenes\popups\settings
-* source\singletons\popups
+* scenes\popups\settings\volume_slider
+* singletons\popups
 
 ### Saved Games
 
@@ -140,17 +161,17 @@ Saves.get_save_info("a different saved game")
 ```
 
 **Key Files:**
-* source\singletons\game_state
-* source\singletons\saves
+* singletons\game_state
+* singletons\saves
 
 **Usage Examples:**
-* scenes\components\saved_game
 * scenes\popups\confirm_action
 * scenes\popups\save_as
 * scenes\popups\save_first
 * scenes\popups\save_select
+* scenes\popups\save_select\saved_game
 * scenes\screens\main_menu
-* source\singletons\popups
+* singletons\popups
 
 ### Screen Transitions
 
@@ -195,7 +216,7 @@ signal transition_complete
 **Key Files:**
 * scenes\main
 * scenes\transitions\fade_to_black
-* source\singletons\transitions
+* singletons\transitions
 
 **Usage Examples:**
 * scenes\screens\main_menu
@@ -209,4 +230,4 @@ This largely automated singleton decorates all in-game buttons with sound effect
 It should be possible to have different Buttons play different sets of sounds based on their type, any assigned labels, or other logic. In theory, you could have the buttons on your battle screen play sword swooshes and strikes while the buttons on your main menu play short blips and chimes, and similar. To do this, modify the `_add_sounds_to_button()` function in the ButtonSounds singleton, connecting it to different sound-playing functions based on that button's properties, labels, etc.
 
 **Key Files:**
-* source\singletons\button_sounds
+* singletons\button_sounds

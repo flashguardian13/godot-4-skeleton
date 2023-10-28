@@ -7,7 +7,7 @@ extends Window
 # name: the name of the selected save
 
 # Game save buttons will be instantiated as needed
-var saved_game_button:PackedScene = preload("res://scenes/components/saved_game.tscn")
+var saved_game_button:PackedScene = preload("res://scenes/popups/save_select/saved_game.tscn")
 
 signal resolved(result)
 

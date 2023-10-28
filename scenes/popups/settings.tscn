@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3uetocx2ghca"]
 
-[ext_resource type="PackedScene" uid="uid://p61u8ao4mh85" path="res://scenes/components/volume_slider.tscn" id="1_clws8"]
+[ext_resource type="PackedScene" uid="uid://p61u8ao4mh85" path="res://scenes/popups/settings/volume_slider.tscn" id="1_clws8"]
 [ext_resource type="Script" path="res://scenes/popups/settings.gd" id="1_r7sc3"]
 
 [node name="settings" type="Window"]

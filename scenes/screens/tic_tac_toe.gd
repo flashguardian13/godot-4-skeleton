@@ -11,7 +11,7 @@ extends MarginContainer
 
 # The path to our background music
 # Sound from Zapsplat.com
-const BG_MUSIC_PATH:String = "res://sounds/music/music_zapsplat_game_music_zen_calm_soft_arpeggios_013.mp3"
+const BG_MUSIC_PATH:String = "res://assets/music/music_zapsplat_game_music_zen_calm_soft_arpeggios_013.mp3"
 
 # A 2D Array holding references to our game pieces: the X/O marks.
 var board_marks:Array
@@ -28,11 +28,11 @@ func _ready():
 	GameState.board_state_changed.connect(_on_board_state_changed)
 	# Pre-load game sounds.
 	chalk_sounds = [
-		ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_001_51971.mp3"),
-		ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_005_51975.mp3"),
-		ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_006_51976.mp3")
+		ResourceLoader.load("res://assets/sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_001_51971.mp3"),
+		ResourceLoader.load("res://assets/sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_005_51975.mp3"),
+		ResourceLoader.load("res://assets/sounds/chalkboard/zapsplat_office_chalk_draw_line_on_chalkboard_006_51976.mp3")
 	]
-	board_erase_sound = ResourceLoader.load("res://sounds/chalkboard/zapsplat_office_chalkboard_eraser_duster_rub_007_51983.mp3")
+	board_erase_sound = ResourceLoader.load("res://assets/sounds/chalkboard/zapsplat_office_chalkboard_eraser_duster_rub_007_51983.mp3")
 	# Fetch and store references to the game pieces or "marks" in the UI to make
 	# later logic easier.
 	board_marks = [
