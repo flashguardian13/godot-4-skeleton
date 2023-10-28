@@ -59,10 +59,10 @@ func _on_new_button_pressed():
 				assert(false, "Unexpected verdict from save_first: '%s'" % verdict)
 	# Restart the game
 	GameState.reset_board()
-	Transitions.start_transition(Transitions.FADE_TO_BLACK, Transitions.TIC_TAC_TOE)
+	Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_TIC_TAC_TOE)
 
 func _on_resume_button_pressed():
-	Transitions.start_transition(Transitions.FADE_TO_BLACK, Transitions.TIC_TAC_TOE)
+	Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_TIC_TAC_TOE)
 
 func _on_load_button_pressed():
 	print("[MainMenu] _on_load_button_pressed")
@@ -86,7 +86,7 @@ func _on_load_button_pressed():
 	if !should_continue:
 		return
 	# Load the selected game
-	Transitions.start_transition(Transitions.FADE_TO_BLACK, Transitions.TIC_TAC_TOE)
+	Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_TIC_TAC_TOE)
 
 func _on_save_button_pressed():
 	await _select_game_and_save()

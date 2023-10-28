@@ -106,7 +106,7 @@ func _enable_all_unmarked() -> void:
 
 func _on_back_button_pressed():
 	print("[TicTacToe] _on_back_button_pressed()")
-	Transitions.start_transition(Transitions.FADE_TO_BLACK, Transitions.MAIN_MENU)
+	Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_MAIN_MENU)
 
 func _on_reset_button_pressed():
 	print("[TicTacToe] _on_reset_button_pressed()")

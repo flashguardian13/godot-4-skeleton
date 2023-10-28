@@ -184,10 +184,8 @@ Transitions.start_transition("res://scenes/transitions/fade_to_black.tscn", "res
 It is recommended to define commonly-used transitions and scenes as constants at the top of the Transitions source so they can be referred to everywhere.
 
 ```
-Transitions.start_transition(Transitions.FADE_TO_BLACK, Transitions.TIC_TAC_TOE)
+Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_TIC_TAC_TOE)
 ```
-
-*TODO: Rename these constants so it's clear whether each is a transition or a screen.*
 
 To understand how this is implemented, you may first want to look at `scenes/main.tscn` in the editor. At its root is a Main MarginContainer (fullscreen) with a number of CanvasLayers as children: Background, Stage, UI, Transition, and Popups. Screens are added as children of the Stage CanvasLayer, while transitions are added to the Transition layer.
 

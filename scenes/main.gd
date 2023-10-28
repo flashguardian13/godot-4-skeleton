@@ -12,7 +12,7 @@ func _ready():
 	call_deferred("_show_splash_screen")
 
 func _show_splash_screen():
-	Transitions.start_transition(Transitions.FADE_TO_BLACK, Transitions.SPLASH_SCREEN)
+	Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_SPLASH)
 
 # Handle game close/quit requests here.
 func _notification(what):

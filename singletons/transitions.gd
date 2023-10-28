@@ -7,12 +7,12 @@ extends Node
 # tree and replace it with the new screen.
 
 # Screen transition resource paths
-const FADE_TO_BLACK:String = "res://scenes/transitions/fade_to_black.tscn"
+const TRANSITION_FADE_TO_BLACK:String = "res://scenes/transitions/fade_to_black.tscn"
 
 # Screen resource paths
-const SPLASH_SCREEN:String = "res://scenes/screens/splash.tscn"
-const MAIN_MENU:String =     "res://scenes/screens/main_menu.tscn"
-const TIC_TAC_TOE:String =   "res://scenes/screens/tic_tac_toe.tscn"
+const SCREEN_SPLASH:String = "res://scenes/screens/splash.tscn"
+const SCREEN_MAIN_MENU:String =     "res://scenes/screens/main_menu.tscn"
+const SCREEN_TIC_TAC_TOE:String =   "res://scenes/screens/tic_tac_toe.tscn"
 
 # Scenes only need to be loaded once before they can be instantiated, so we'll
 # keep each scene definition in this cache here.

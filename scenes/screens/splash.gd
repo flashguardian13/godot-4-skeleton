@@ -4,4 +4,4 @@ extends MarginContainer
 
 func _ready():
 	await get_tree().create_timer(3).timeout
-	Transitions.start_transition(Transitions.FADE_TO_BLACK, Transitions.MAIN_MENU)
+	Transitions.start_transition(Transitions.TRANSITION_FADE_TO_BLACK, Transitions.SCREEN_MAIN_MENU)
